@@ -22,17 +22,18 @@ This project demonstrates a comprehensive authentication API using Django and Dj
    ```bash
    git clone <repository-url>
 
-    python -m venv env
-    cd env
-cd Scripts
-.\activate
-cd..
-cd..
-pip install -r requirements.txt
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
-http://127.0.0.1:8000/
+      python -m venv env
+      cd env
+      cd Scripts
+      .\activate
+      cd..
+      cd..
+      pip install -r requirements.txt
+      python manage.py makemigrations
+      python manage.py migrate
+      python manage.py runserver
+      http://127.0.0.1:8000/
+
 
 
 
