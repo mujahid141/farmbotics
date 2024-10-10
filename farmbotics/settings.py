@@ -43,6 +43,18 @@ INSTALLED_APPS = [
     'pestanddisease',
     'imageprocessing',
     
+    
+    #external Apps 
+    'rest_framework',  # DRF
+    'dj_rest_auth',  # REST authentication
+    'allauth',  # django-allauth
+    'allauth.account',  # User account management
+    'allauth.socialaccount',  # Social authentication
+    'dj_rest_auth.registration', 
+    'rest_framework.authtoken',
+    'requests',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -53,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'farmbotics.urls'
