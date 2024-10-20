@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-lg!!cymc!pmpot9+!q+f@s1do#c*eqjh-d2!@e-njte6a*8hp^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,6 +54,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'requests',
     
+    #for Allowing the Requests from others ports
+    "corsheaders",
+    
     
 ]
 
@@ -66,6 +69,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = 'farmbotics.urls'
@@ -139,4 +144,17 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
+REST_AUTH_PASSWORD_RESET_CONFIRM_URL = 'password-reset-confirm/{uid}/{token}/'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# In your settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@gmail.com'
+EMAIL_HOST_PASSWORD = 'your-email-password'
+DEFAULT_FROM_EMAIL = 'your-email@gmail.com'
+
+
+CORS_ALLOW_ALL_ORIGINS = True
