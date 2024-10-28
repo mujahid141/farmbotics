@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'farmlocationidentification',
-    'weatherprediction',         
-    'soilanalysis',     
-    'pestanddisease',
+    'users',
+    'soilanalysis',
     'imageprocessing',
+    'weatherprediction',
+    'pestanddisease',
     
     
     #external Apps 
@@ -56,6 +57,9 @@ INSTALLED_APPS = [
     
     #for Allowing the Requests from others ports
     "corsheaders",
+    #core apps
+    
+    
     
     
 ]
@@ -104,6 +108,16 @@ DATABASES = {
     }
 }
 
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+      'rest_framework.authentication.TokenAuthentication',  
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

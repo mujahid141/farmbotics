@@ -17,12 +17,29 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from soilanalysis import views
+from dj_rest_auth.views import LoginView
+from dj_rest_auth.registration.views import RegisterView
+from rest_framework.authtoken import views as auth_views
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/auth/', include('dj_rest_auth.urls')),  
-    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),  
-    path('api/social/', include('allauth.socialaccount.urls')), 
-     path('auth/', include('django.contrib.auth.urls')), 
-    path('api/soilanalysis/', views.SoilAnalyzer.as_view(), name="first"), 
     
+    #soil analysis
+    path('api/users/', include('users.urls')),
+    path('api/soil_analysis/', include('soilanalysis.urls')),
+    
+    # Auth and registration URLs
+    path('api/auth/login/', LoginView.as_view(), name='login'),
+    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('api/auth/register/', RegisterView.as_view(), name='register'),
+    
+    # Token URL (for generating tokens after login)
+    path('api/auth/token/', auth_views.obtain_auth_token, name='token'),
+    
+    # Social auth
+    path('api/social/', include('allauth.socialaccount.urls')),
+
+    # Soil analysis
+   
 ]
