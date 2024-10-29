@@ -150,6 +150,12 @@ USE_I18N = True
 USE_TZ = True
 
 
+# Ensure AllAuth sends an email for account verification
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # This requires email verification
+ACCOUNT_EMAIL_REQUIRED = True             # Requires users to provide an email
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True       # Allows the confirmation link to be accessed via GET request
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -158,17 +164,20 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-REST_AUTH_PASSWORD_RESET_CONFIRM_URL = 'password-reset-confirm/{uid}/{token}/'
+REST_AUTH_PASSWORD_RESET_CONFIRM_URL = 'auth/password/reset/confirm/{uidb64}/{token}/'
+
+
+ACCOUNT_EMAIL_CONFIRMATION_EMAIL = 'account/email/email_confirmation_message.html'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # In your settings.py
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'your-email@gmail.com'
-EMAIL_HOST_PASSWORD = 'your-email-password'
-DEFAULT_FROM_EMAIL = 'your-email@gmail.com'
+EMAIL_HOST_USER = 'mujahidanwar141@gmail.com'
+EMAIL_HOST_PASSWORD = 'rpqpjuuadklhrkda'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 CORS_ALLOW_ALL_ORIGINS = True
