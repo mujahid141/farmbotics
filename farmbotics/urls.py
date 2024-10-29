@@ -20,7 +20,7 @@ from soilanalysis import views
 from dj_rest_auth.views import LoginView
 from dj_rest_auth.registration.views import RegisterView
 from rest_framework.authtoken import views as auth_views
-
+from dj_rest_auth.views import PasswordResetView, PasswordResetConfirmView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,10 +36,14 @@ urlpatterns = [
     
     # Token URL (for generating tokens after login)
     path('api/auth/token/', auth_views.obtain_auth_token, name='token'),
+     # AllAuth URLs for email verification
+    path('accounts/', include('allauth.urls')), 
     
     # Social auth
     path('api/social/', include('allauth.socialaccount.urls')),
 
-    # Soil analysis
+    # Password Reset 
+    path('api/auth/password/reset/', PasswordResetView.as_view(), name='password_reset'),
+    path('api/auth/password/reset/confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
    
 ]

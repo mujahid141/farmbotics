@@ -28,7 +28,7 @@ class CsrfExemptLoginView(LoginView):
 class ProfileListCreateView(generics.ListCreateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    #permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)  # Set the user to the authenticated user
@@ -37,10 +37,8 @@ class ProfileListCreateView(generics.ListCreateAPIView):
 class ProfileDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-    permission_classes = [permissions.IsAuthenticated]
+   # permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         # Filter profiles to those owned by the authenticated user
-        return Profile.objects.filter(user=self.request.user)
-
-    
+        return Profile.objects.filter(user_id=self.request.user.id)
