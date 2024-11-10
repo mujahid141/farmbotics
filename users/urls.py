@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import ProfileListCreateView, ProfileDetailView
+from .views import  ProfileDetailView , CustomPasswordResetView
 
 urlpatterns = [
-    path('profiles/', ProfileListCreateView.as_view(), name='profile-list-create'),
-    path('profiles/<int:pk>/', ProfileDetailView.as_view(), name='profile-detail'),
+    path('profile/', ProfileDetailView.as_view(), name='profile-detail'),
+    path('auth/password/reset/', CustomPasswordResetView.as_view(), name='password_reset')
 ]
