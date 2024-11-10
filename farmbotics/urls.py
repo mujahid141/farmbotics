@@ -28,6 +28,7 @@ urlpatterns = [
     #soil analysis
     path('api/users/', include('users.urls')),
     path('api/soil_analysis/', include('soilanalysis.urls')),
+    #path('api/pest_detection/', include('pestanddisease.urls')),
     
     # Auth and registration URLs
     path('api/auth/login/', LoginView.as_view(), name='login'),
