@@ -1,0 +1,59 @@
+<!-- templates/account/email_confirm.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Confirmation</title>
+    <style>
+        body {
+            background: #f0f4f8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            padding: 40px 50px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #38b000;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .login-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background-color: #38b000;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #2c8e00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Email Confirmed!</h1>
+        <p>Your email <strong>{{ email }}</strong> has been successfully confirmed. You can now log in.</p>
+        <a class="login-button" href="http://localhost:3000/login">Go to Login</a>
+    </div>
+</body>
+</html>
