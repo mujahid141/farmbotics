@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from .models import Farm
+from .models import FarmReport
 
-class FarmSerializer(serializers.ModelSerializer):
+class FarmReportSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Farm
-        fields = ['id', 'user', 'name', 'coordinates']
+        model = FarmReport
+        fields = '__all__'
+        read_only_fields = ['id','user']

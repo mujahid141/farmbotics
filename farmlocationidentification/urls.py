@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import FarmReportAPIView
+
 urlpatterns = [
-    path('save-region/', views.SaveFarmRegion.as_view(), name='save-farm-region'),
-    path('get-region/', views.GetFarmRegion.as_view(), name='get-farm-region'),
+    path('farm-reports/', FarmReportAPIView.as_view(), name='farm-reports'),
 ]

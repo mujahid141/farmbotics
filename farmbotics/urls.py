@@ -21,6 +21,8 @@ from pestanddisease import views as pest_views
 from weatherprediction import views as weather_views
 from dj_rest_auth.registration.views import VerifyEmailView
 from users.views import CustomConfirmEmailView
+
+from repotgeneration.views import SoilPredictionView
 urlpatterns = [
     path('admin/', admin.site.urls),
     
@@ -41,6 +43,13 @@ urlpatterns = [
     path('api/pestanddisease/', pest_views.PredictLeafDiseaseView.as_view(), name="pest-disease"),       
     path('api/bot/', include('weatherprediction.urls')),  
     path('api/profile/', include('users.urls')),
+    path('api/farm/', include('farmlocationidentification.urls')),
+    
+    
+    #APIs for report generation
+    path('api/report/', include('repotgeneration.urls')),
+    path('api/payment/', include('payment.urls')),
+    
 ]
     
 

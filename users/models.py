@@ -8,7 +8,8 @@ class CustomUser(AbstractUser):
     address = models.CharField(max_length=255, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     is_verified = models.BooleanField(default=False)
-
+    is_subscribed = models.BooleanField(default=False)
+    subscription_expiry = models.DateTimeField(blank=True, null=True)
     otp = models.CharField(max_length=6, blank=True, null=True)
     otp_created_at = models.DateTimeField(blank=True, null=True)
 
