@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'users',
     'repotgeneration',
     'payment',
+    'marketplace',
 
     
     
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration', 
     'rest_framework.authtoken',
     'requests',
+
     
     #for Allowing the Requests from others ports
     "corsheaders",
@@ -86,6 +88,8 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+KNOWLEDGE_BASE_PATH = os.path.join(BASE_DIR, 'knowledge_base.json')
+
 
 TEMPLATES = [
     {
